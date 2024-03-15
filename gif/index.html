@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手机弹性布局</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .image {
+    max-width: 100%;
+    max-height: 100%;
+    transition: transform 0.5s ease;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <img class="image" src="1.gif" alt="Image 1">
+</div>
+
+<script>
+  const images = [
+    "1.gif",
+    "2.gif",
+    "3.gif",
+    // "4.gif",
+    // "5.gif",
+    // "6.gif"
+  ];
+
+  let currentIndex = 0;
+
+  const container = document.querySelector(".container");
+  const image = document.querySelector(".image");
+
+  container.addEventListener("click", () => {
+    currentIndex++;
+    if (currentIndex >= images.length) return;
+
+    image.src = images[currentIndex];
+
+    if (currentIndex === 2) {
+      playSoundEffect();
+    }
+  });
+
+  function playSoundEffect() {
+    // 在这里播放音效的代码
+    const audio = new Audio('sound.MP3');
+    audio.play();
+    // console.log("播放音效");
+  }
+</script>
+</body>
+</html>
